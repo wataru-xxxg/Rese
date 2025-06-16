@@ -9,7 +9,7 @@
                 <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Registration</a>
+                <a href="/register" class="nav-link">Registration</a>
             </li>
             <li class="nav-item">
                 <a href="/login" class="nav-link">Login</a>
