@@ -1,73 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #e8e8e8;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    padding: 20px 30px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #4169e1;
-    border-radius: 8px;
-    position: relative;
-}
-
-.logo-icon::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24px;
-    height: 16px;
-    background-color: white;
-    border-radius: 2px;
-}
-
-.logo-icon::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 16px;
-    height: 2px;
-    background-color: #4169e1;
-    border-radius: 1px;
-}
-
-.logo h1 {
-    font-size: 36px;
-    color: #4169e1;
-    font-weight: bold;
-}
-
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
 .registration-container {
     background-color: white;
     border-radius: 12px;
@@ -83,7 +13,8 @@ main {
     text-align: center;
 }
 
-.registration-header h2 {
+.registration-title {
+    text-align: left;
     color: white;
     font-size: 24px;
     font-weight: normal;
@@ -139,7 +70,7 @@ main {
     mask-size: contain;
 }
 
-.input-group input {
+.input-field {
     flex: 1;
     border: none;
     outline: none;
@@ -148,7 +79,7 @@ main {
     background: transparent;
 }
 
-.input-group input::placeholder {
+.input-field::placeholder {
     color: #999;
 }
 
@@ -186,7 +117,7 @@ main {
         padding: 20px;
     }
 
-    .logo h1 {
+    .registration-title {
         font-size: 28px;
     }
 }
