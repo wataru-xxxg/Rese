@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         @include('components.menu')
         <div class="header-container">
             <div class="logo">
@@ -22,6 +22,9 @@
                 </a>
                 <h1>Rese</h1>
             </div>
+            @if (Route::is('index'))
+            @include('components.search')
+            @endif
         </div>
     </header>
 
