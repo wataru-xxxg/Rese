@@ -8,20 +8,20 @@ body {
     font-family: Arial, sans-serif;
     background-color: #e8e8e8;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
-header {
+.header {
     padding: 20px 30px;
 }
 
-main {
+.main {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    max-width: 1380px;
+    margin: 0 auto;
 }
 
 .logo {

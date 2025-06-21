@@ -1,15 +1,24 @@
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
 .login-container {
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .login-header {
     background-color: #4169e1;
-    padding: 20px;
+    padding: 10px 20px;
     text-align: center;
 }
 

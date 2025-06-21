@@ -4,12 +4,12 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .registration-header {
     background-color: #4169e1;
-    padding: 20px;
+    padding: 10px 20px;
     text-align: center;
 }
 
