@@ -33,8 +33,8 @@
                     <span>{{ $shop->name }}</span>
                 </a>
 
-                <div class="restaurant-image">
-                    <img src="{{ asset(Storage::url($shop->image_path)) }}" alt="イメージ画像">
+                <div class="image-container">
+                    <img src="{{ asset(Storage::url($shop->image_path)) }}" alt="イメージ画像" class="restaurant-image">
                 </div>
 
                 <div class="tags">
@@ -49,48 +49,66 @@
         </section>
         <section class="right-section">
             <div class="reservation-form">
-                <h2>予約</h2>
+                <h2 class="reservation-title">予約</h2>
 
-                <form>
+                <form action="{{ route('reservation') }}" method="post">
+                    @csrf
                     <div class="form-group">
-                        <input type="date" value="2021-04-01" class="form-input">
+                        <input type="date" value="{{ date('Y/m/d') }}" class="date-input" name="date">
                     </div>
 
                     <div class="form-group">
-                        <input type="time" value="17:00" class="form-input">
+                        <select class="form-input" name="time">
+                            <option>17:00</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+                            <option>20:00</option>
+                            <option>20:30</option>
+                            <option>21:00</option>
+                            <option>21:30</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <select class="form-input">
+                        <select class="form-input" name="number">
                             <option>1人</option>
                             <option>2人</option>
                             <option>3人</option>
                             <option>4人</option>
+                            <option>5人</option>
+                            <option>6人</option>
+                            <option>7人</option>
+                            <option>8人</option>
+                            <option>9人</option>
+                            <option>10人</option>
                         </select>
                     </div>
 
                     <div class="reservation-summary">
                         <div class="summary-row">
-                            <span class="label">Shop</span>
+                            <span class="shop-label">Shop</span>
                             <span class="value">仙人</span>
                         </div>
                         <div class="summary-row">
-                            <span class="label">Date</span>
+                            <span class="date-label">Date</span>
                             <span class="value">2021-04-01</span>
                         </div>
                         <div class="summary-row">
-                            <span class="label">Time</span>
+                            <span class="time-label">Time</span>
                             <span class="value">17:00</span>
                         </div>
                         <div class="summary-row">
-                            <span class="label">Number</span>
+                            <span class="number-label">Number</span>
                             <span class="value">1人</span>
                         </div>
                     </div>
-
-                    <button type="submit" class="reserve-button">予約する</button>
                 </form>
             </div>
+
+            <button type="submit" class="reserve-button">予約する</button>
         </section>
     </div>
 </body>

@@ -20,3 +20,4 @@ Route::get('/mypage', function () {
     return view('mypage');
 })->name('mypage')->middleware('auth');
 Route::get('/detail/{id}', [ShopController::class, 'detail'])->name('detail');
+Route::post('/detail/{id}', [ShopController::class, 'reservation'])->name('reservation');

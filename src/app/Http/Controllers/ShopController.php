@@ -18,4 +18,12 @@ class ShopController extends Controller
         $shop = Shop::find($id);
         return view('detail', compact('shop'));
     }
+
+    public function reservation(Request $request)
+    {
+        $shop = Shop::find($request->id);
+        $shop->reservation = $request->reservation;
+        $shop->save();
+        return redirect()->route('detail', $shop->id);
+    }
 }
