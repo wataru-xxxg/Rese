@@ -20,7 +20,7 @@
                 <a class="menu-button" href="#modal-menu">
                     <div class="logo-icon"></div>
                 </a>
-                <h1>Rese</h1>
+                <h1 class="logo-text">Rese</h1>
             </div>
             @if (Route::is('index'))
             @include('components.search')
