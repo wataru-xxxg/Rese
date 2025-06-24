@@ -15,7 +15,7 @@
             <h3>{{ $shop->name }}</h3>
             <p class="restaurant-tags">#{{ $shop->area->name }} #{{ $shop->genre->name }}</p>
             <div class="card-actions">
-                <button class="details-btn">詳しくみる</button>
+                <a href="{{ route('detail', $shop->id) }}" class="details-btn">詳しくみる</a>
                 <button class="heart-btn">♡</button>
             </div>
         </div>

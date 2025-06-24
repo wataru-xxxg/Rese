@@ -46,7 +46,6 @@
     padding: 0 20px;
 }
 
-/* Restaurant Card Styles */
 .restaurant-card {
     background-color: white;
     border-radius: 12px;
@@ -109,6 +108,7 @@
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .details-btn:hover {
@@ -133,7 +133,6 @@
     color: #ff4757;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;

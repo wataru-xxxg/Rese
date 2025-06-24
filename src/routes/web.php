@@ -19,3 +19,4 @@ Route::get('/', [ShopController::class, 'index'])->name('index');
 Route::get('/mypage', function () {
     return view('mypage');
 })->name('mypage')->middleware('auth');
+Route::get('/detail/{id}', [ShopController::class, 'detail'])->name('detail');
