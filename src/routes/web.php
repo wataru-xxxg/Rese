@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ShopController;
 
 /*
@@ -16,8 +15,9 @@ use App\Http\Controllers\ShopController;
 */
 
 Route::get('/', [ShopController::class, 'index'])->name('index');
-Route::get('/mypage', function () {
-    return view('mypage');
-})->name('mypage')->middleware('auth');
 Route::get('/detail/{id}', [ShopController::class, 'detail'])->name('detail');
-Route::post('/detail/{id}', [ShopController::class, 'reservation'])->name('reservation');
+Route::middleware('auth')->group(function () {
+    Route::post('/detail/{id}', [ShopController::class, 'reservation'])->name('reservation');
+    Route::get('/mypage', [ShopController::class, 'mypage'])->name('mypage');
+});
+Route::get('/done', [ShopController::class, 'done'])->name('done');

@@ -1,0 +1,87 @@
+.main {
+    flex: 1;
+    display: flex;
+}
+
+.confirmation-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 80px 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    min-width: 400px;
+    max-width: 500px;
+}
+
+.confirmation-message {
+    color: #333333;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.back-button {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-width: 80px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-button:hover {
+    background-color: #3367d6;
+}
+
+.back-button:active {
+    transform: translateY(1px);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+    .confirmation-card {
+        min-width: auto;
+        width: 100%;
+        max-width: 350px;
+        padding: 60px 40px;
+    }
+
+    .confirmation-message {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .logo-text {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 400px) {
+    .header {
+        padding: 15px;
+    }
+
+    .confirmation-card {
+        padding: 50px 30px;
+    }
+
+    .confirmation-message {
+        font-size: 15px;
+    }
+
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .hamburger-lines span {
+        width: 16px;
+    }
+}
