@@ -1,3 +1,8 @@
+.main {
+    flex: 1;
+    display: flex;
+}
+
 .registration-container {
     background-color: white;
     border-radius: 12px;

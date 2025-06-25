@@ -1,3 +1,8 @@
+.main {
+    flex: 1;
+    display: flex;
+}
+
 .header-container {
     max-width: 1200px;
     margin: 0 auto;
