@@ -1,0 +1,21 @@
+.heart-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 5px;
+}
+
+.heart-icon:hover {
+    color: #ff4757;
+}
+
+.heart-icon.liked {
+    font-size: 3rem;
+    color: #ff4757;
+}
+
+.heart-icon.liked:hover {
+    color: #ddd;
+}

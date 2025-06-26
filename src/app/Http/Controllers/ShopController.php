@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Favorite;
 
 class ShopController extends Controller
 {
@@ -23,7 +24,9 @@ class ShopController extends Controller
 
     public function mypage()
     {
-        return view('mypage');
+        $reservations = Reservation::where('user_id', Auth::user()->id)->where('date', '>=', date('Y-m-d'))->orderBy('date', 'asc')->get();
+        $favorites = Favorite::where('user_id', Auth::user()->id)->get();
+        return view('mypage', compact('reservations', 'favorites'));
     }
 
     public function reservation(Request $request)
