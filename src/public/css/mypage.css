@@ -3,7 +3,7 @@
     margin-bottom: 3rem;
 }
 
-.user-greeting h2 {
+.user-name {
     font-size: 2rem;
     color: #333;
     font-weight: 500;
@@ -16,8 +16,7 @@
     align-items: start;
 }
 
-.reservation-section h3,
-.favorites-section h3 {
+.section-title {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
     color: #333;
@@ -29,12 +28,12 @@
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 4px 8px rgba(79, 119, 255, 0.3);
+    margin-bottom: 1.5rem;
 }
 
 .reservation-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: 1.5rem;
 }
 
@@ -48,9 +47,11 @@
     align-items: center;
     justify-content: center;
     font-size: 1rem;
+    margin-right: 30px;
 }
 
 .reservation-number {
+    text-align: left;
     font-weight: bold;
     font-size: 1.1rem;
 }
@@ -62,6 +63,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     padding: 0.2rem;
+    margin-left: auto;
 }
 
 .close-btn:hover {
@@ -76,17 +78,28 @@
 
 .detail-row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.label {
+.shop-label,
+.date-label,
+.time-label {
     font-weight: 500;
     opacity: 0.9;
+    margin-right: 70px;
+}
+
+.number-label {
+    font-weight: 500;
+    opacity: 0.9;
+    margin-right: 50px;
 }
 
 .value {
-    font-weight: bold;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: left;
+    margin-right: 100px;
 }
 
 .restaurant-cards {
@@ -108,13 +121,13 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.restaurant-image {
+.restaurant-image-wrapper {
     width: 100%;
     height: 200px;
     overflow: hidden;
 }
 
-.restaurant-image img {
+.restaurant-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -124,7 +137,7 @@
     padding: 1.5rem;
 }
 
-.restaurant-info h4 {
+.restaurant-name {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     color: #333;
@@ -157,22 +170,6 @@
     background-color: #3d5fe6;
 }
 
-.favorite-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.favorite-btn:hover {
-    transform: scale(1.1);
-}
-
-.favorite-btn.active {
-    color: #ff4757;
-}
-
 @media (max-width: 768px) {
     .content-wrapper {
         grid-template-columns: 1fr;
@@ -187,7 +184,7 @@
         grid-template-columns: 1fr;
     }
 
-    .user-greeting h2 {
+    .user-name {
         font-size: 1.5rem;
     }
 }

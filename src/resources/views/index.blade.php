@@ -2,24 +2,19 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/components/favorite.css') }}">
+<link rel="stylesheet" href="{{ asset('css/components/restaurant-card.css') }}">
+@endsection
+
+@section('livewire')
+@livewireStyles
 @endsection
 
 @section('content')
 <div class="restaurant-grid">
     @foreach ($shops as $shop)
-    <div class="restaurant-card">
-        <div class="restaurant-image">
-            <img src="{{ asset(Storage::url($shop->image_path)) }}" alt="イメージ画像">
-        </div>
-        <div class="restaurant-info">
-            <h3>{{ $shop->name }}</h3>
-            <p class="restaurant-tags">#{{ $shop->area->name }} #{{ $shop->genre->name }}</p>
-            <div class="card-actions">
-                <a href="{{ route('detail', $shop->id) }}" class="details-btn">詳しくみる</a>
-                <button class="heart-btn">♡</button>
-            </div>
-        </div>
-    </div>
+    @include('components.restaurant-card', ['shop' => $shop])
     @endforeach
 </div>
+@livewireScripts
 @endsection
