@@ -7,45 +7,6 @@
     padding: 0 20px;
 }
 
-.search-container {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.filter-select {
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    background-color: white;
-    font-size: 14px;
-    min-width: 120px;
-    cursor: pointer;
-}
-
-.search-input {
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    width: 300px;
-    font-size: 14px;
-}
-
-.search-input:focus,
-.filter-select:focus {
-    outline: none;
-    border-color: #4285f4;
-}
-
-.restaurant-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px 10px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;

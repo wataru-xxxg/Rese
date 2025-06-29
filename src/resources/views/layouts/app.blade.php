@@ -24,7 +24,7 @@
                 <h1 class="logo-text">Rese</h1>
             </div>
             @if (Route::is('index'))
-            @include('components.search')
+            @livewire('search')
             @endif
         </div>
     </header>

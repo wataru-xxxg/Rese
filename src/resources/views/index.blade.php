@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <link rel="stylesheet" href="{{ asset('css/components/favorite.css') }}">
 <link rel="stylesheet" href="{{ asset('css/components/restaurant-card.css') }}">
+<link rel="stylesheet" href="{{ asset('css/components/search.css') }}">
+<link rel="stylesheet" href="{{ asset('css/components/grid.css') }}">
 @endsection
 
 @section('livewire')
@@ -11,10 +13,6 @@
 @endsection
 
 @section('content')
-<div class="restaurant-grid">
-    @foreach ($shops as $shop)
-    @include('components.restaurant-card', ['shop' => $shop])
-    @endforeach
-</div>
+@livewire('grid')
 @livewireScripts
 @endsection

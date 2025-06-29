@@ -1,0 +1,38 @@
+.search-container {
+    display: flex;
+    gap: 0;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.filter-select {
+    padding: 10px 15px;
+    border: none;
+    background-color: #ffffff;
+    font-size: 14px;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+.filter-select:not(:last-child) {
+    border-right: 1px solid #ddd;
+}
+
+.search-input {
+    padding: 10px 15px 10px 40px;
+    border: none;
+    width: 300px;
+    font-size: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cpath d='m21 21-4.35-4.35'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    background-size: 16px;
+}
+
+.search-input:focus,
+.filter-select:focus {
+    outline: none;
+    border-color: #4285f4;
+}
