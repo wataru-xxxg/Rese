@@ -1,24 +1,21 @@
 <div>
+    @if ($isChange)
+    <form action="{{ route('reservation-change', $reservation->id) }}" method="post" id="reservation-form">
+    @else
     <form action="{{ route('reservation', $shop->id) }}" method="post" id="reservation-form">
+    @endif
         @csrf
         <input type="hidden" name="shop_id" value="{{ $shop->id }}">
 
         <div class="form-group">
-            <input type="date" value="{{ date('Y/m/d') }}" class="date-input" name="date" wire:model="date">
+            <input type="date" value="{{ date('Y-m-d') }}" class="date-input" name="date" wire:model="date">
         </div>
 
         <div class="form-group">
             <select class="form-input" name="time" wire:model="time">
-                <option>17:00</option>
-                <option>17:30</option>
-                <option>18:00</option>
-                <option>18:30</option>
-                <option>19:00</option>
-                <option>19:30</option>
-                <option>20:00</option>
-                <option>20:30</option>
-                <option>21:00</option>
-                <option>21:30</option>
+                @foreach ($availableTimes as $availableTime)
+                <option value="{{ $availableTime }}">{{ $availableTime }}</option>
+                @endforeach
             </select>
         </div>
 
@@ -44,7 +41,7 @@
             </div>
             <div class="summary-row">
                 <span class="date-label">Date</span>
-                <span class="value">{{ $date }}</span>
+                <span class="value">{{ date('Y-m-d', strtotime($date)) }}</span>
             </div>
             <div class="summary-row">
                 <span class="time-label">Time</span>

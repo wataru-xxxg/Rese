@@ -40,6 +40,24 @@ class ShopController extends Controller
         return redirect()->route('done');
     }
 
+    public function reservationChangePage(Request $request)
+    {
+        $id = $request->id;
+        $reservation = Reservation::find($id);
+        $shop = Shop::find($reservation->shop_id);
+        return view('reservation-change', compact('reservation', 'shop'));
+    }
+
+    public function reservationChange(Request $request)
+    {
+        $id = $request->id;
+        $reservation = Reservation::find($id);
+        $reservation->date = $request->date;
+        $reservation->time = $request->time;
+        $reservation->number = $request->number;
+        $reservation->save();
+        return redirect()->route('done');
+    }
     public function done()
     {
         return view('done');

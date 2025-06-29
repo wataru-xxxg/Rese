@@ -18,6 +18,8 @@ Route::get('/', [ShopController::class, 'index'])->name('index');
 Route::get('/detail/{id}', [ShopController::class, 'detail'])->name('detail');
 Route::middleware('auth')->group(function () {
     Route::post('/detail/{id}', [ShopController::class, 'reservation'])->name('reservation');
+    Route::get('/reservation-change/{id}', [ShopController::class, 'reservationChangePage'])->name('reservation-change-page');
+    Route::post('/reservation-change/{id}', [ShopController::class, 'reservationChange'])->name('reservation-change');
     Route::get('/mypage', [ShopController::class, 'mypage'])->name('mypage');
 });
 Route::get('/done', [ShopController::class, 'done'])->name('done');
