@@ -13,18 +13,33 @@
         @csrf
         <div class="input-group">
             <div class="input-icon user-icon"></div>
-            <input type="text" placeholder="Username" required name="name" class="input-field">
+            <input type="text" placeholder="Username" name="name" class="input-field">
         </div>
+        @error('name')
+        <div class="form-error">
+            {{ $message }}
+        </div>
+        @enderror
 
         <div class="input-group">
             <div class="input-icon email-icon"></div>
-            <input type="email" placeholder="Email" required name="email" class="input-field">
+            <input type="email" placeholder="Email" name="email" class="input-field">
         </div>
+        @error('email')
+        <div class="form-error">
+            {{ $message }}
+        </div>
+        @enderror
 
         <div class="input-group">
             <div class="input-icon password-icon"></div>
-            <input type="password" placeholder="Password" required name="password" class="input-field">
+            <input type="password" placeholder="Password" name="password" class="input-field">
         </div>
+        @error('password')
+        <div class="form-error">
+            {{ $message }}
+        </div>
+        @enderror
 
         <button type="submit" class="submit-btn">登録</button>
     </form>
