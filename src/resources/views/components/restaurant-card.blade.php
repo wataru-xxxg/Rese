@@ -5,6 +5,18 @@
     <div class="restaurant-info">
         <h3 class="restaurant-name">{{ $shop->name }}</h3>
         <p class="restaurant-tags">#{{ $shop->area->name }} #{{ $shop->genre->name }}</p>
+        <div class="rating-info">
+            <div class="stars">
+                @for ($i = 1; $i <= 5; $i++)
+                    @if ($i <=$shop->average_rating)
+                    <span class="star filled">★</span>
+                    @else
+                    <span class="star">☆</span>
+                    @endif
+                    @endfor
+            </div>
+            <span class="rating-text">{{ $shop->average_rating }}/5 ({{ $shop->review_count }}件)</span>
+        </div>
         <div class="card-actions">
             <a href="{{ route('detail', $shop->id) }}" class="details-btn">詳しくみる</a>
             @if (Auth::check())

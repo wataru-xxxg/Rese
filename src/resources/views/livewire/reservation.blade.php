@@ -3,9 +3,9 @@
     <form action="{{ route('reservation-change', $reservation->id) }}" method="post" id="reservation-form">
         @else
         <form action="{{ route('reservation', $shop->id) }}" method="post" id="reservation-form">
+            <input type="hidden" name="shop_id" value="{{ $shop->id }}">
             @endif
             @csrf
-            <input type="hidden" name="shop_id" value="{{ $shop->id }}">
 
             @error('date')
             <div class="form-error">

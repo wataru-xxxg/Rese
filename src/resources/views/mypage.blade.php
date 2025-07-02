@@ -42,7 +42,8 @@
                     <span class="number-label">Number</span>
                     <span class="value">{{ $reservation->number }}人</span>
                 </div>
-                <a href="{{ route('reservation-change', $reservation->id) }}" class="change-btn">変更</a>
+                <a href="{{ route('reservation-change', $reservation->id) }}" class="change-btn">予約変更</a>
+                <a href="{{ route('review', $reservation->id) }}" class="review-btn">レビュー</a>
             </div>
         </div>
         @endforeach

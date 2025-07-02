@@ -20,6 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/detail/{id}', [ShopController::class, 'reservation'])->name('reservation');
     Route::get('/reservation-change/{id}', [ShopController::class, 'reservationChangePage'])->name('reservation-change-page');
     Route::post('/reservation-change/{id}', [ShopController::class, 'reservationChange'])->name('reservation-change');
+    Route::get('/review/{id}', [ShopController::class, 'reviewPage'])->name('review-page');
+    Route::post('/review/{id}', [ShopController::class, 'review'])->name('review');
     Route::get('/mypage', [ShopController::class, 'mypage'])->name('mypage');
 });
 Route::get('/done', [ShopController::class, 'done'])->name('done');

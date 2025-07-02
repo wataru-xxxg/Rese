@@ -14,7 +14,7 @@ class Grid extends Component
 
     public function mount()
     {
-        $this->shops = Shop::all();
+        $this->shops = Shop::with(['area', 'genre', 'reviews'])->get();
     }
 
     protected $listeners = [
@@ -43,7 +43,7 @@ class Grid extends Component
 
     public function search()
     {
-        $query = Shop::query();
+        $query = Shop::with(['area', 'genre', 'reviews']);
         if ($this->area) {
             $query->where('area_id', $this->area);
         }

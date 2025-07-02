@@ -18,4 +18,20 @@ class Shop extends Model
     {
         return $this->belongsTo(Genre::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        $average = $this->reviews()->avg('rating');
+        return $average ? round($average, 1) : 0;
+    }
+
+    public function getReviewCountAttribute()
+    {
+        return $this->reviews()->count();
+    }
 }

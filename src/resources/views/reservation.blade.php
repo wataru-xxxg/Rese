@@ -10,10 +10,10 @@
 
 @section('right-section')
 <div class="reservation-form">
-    <h2 class="reservation-title">予約変更</h2>
+    <h2 class="reservation-title">予約</h2>
 
-    @livewire('reservation', ['shop' => $shop, 'reservation' => $reservation])
+    @livewire('reservation', ['shop' => $shop])
 </div>
 
-<button form="reservation-form" type="submit" class="reserve-button">変更する</button>
+<button form="reservation-form" type="submit" class="reserve-button">予約する</button>
 @endsection

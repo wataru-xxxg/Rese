@@ -42,7 +42,34 @@
 .restaurant-tags {
     color: #666;
     font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.rating-info {
+    display: flex;
+    align-items: center;
     margin-bottom: 15px;
+    gap: 8px;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    font-size: 16px;
+    color: #ddd;
+}
+
+.star.filled {
+    color: #ffd700;
+}
+
+.rating-text {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
 }
 
 .card-actions {
