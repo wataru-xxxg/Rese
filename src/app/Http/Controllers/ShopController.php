@@ -7,6 +7,7 @@ use App\Models\Shop;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
+use App\Http\Requests\ReservationRequest;
 
 class ShopController extends Controller
 {
@@ -28,7 +29,7 @@ class ShopController extends Controller
         return view('mypage', compact('reservations', 'favorites'));
     }
 
-    public function reservation(Request $request)
+    public function reservation(ReservationRequest $request)
     {
         $reservation = new Reservation();
         $reservation->shop_id = $request->shop_id;
@@ -48,9 +49,8 @@ class ShopController extends Controller
         return view('reservation-change', compact('reservation', 'shop'));
     }
 
-    public function reservationChange(Request $request)
+    public function reservationChange(ReservationRequest $request, $id)
     {
-        $id = $request->id;
         $reservation = Reservation::find($id);
         $reservation->date = $request->date;
         $reservation->time = $request->time;

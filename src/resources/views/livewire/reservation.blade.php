@@ -7,10 +7,17 @@
             @csrf
             <input type="hidden" name="shop_id" value="{{ $shop->id }}">
 
+            @error('date')
+            <div class="form-error">
+                {{ $message }}
+            </div>
+            @enderror
+
             <div class="form-group">
                 <input type="date" value="{{ date('Y-m-d') }}" class="date-input" name="date" wire:model="date">
             </div>
-            @error('date')
+
+            @error('time')
             <div class="form-error">
                 {{ $message }}
             </div>
@@ -23,11 +30,6 @@
                     @endforeach
                 </select>
             </div>
-            @error('time')
-            <div class="form-error">
-                {{ $message }}
-            </div>
-            @enderror
 
             <div class="form-group">
                 <select class="form-input" name="number" wire:model="number">
