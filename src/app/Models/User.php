@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -41,4 +42,58 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * ユーザーのロールを取得
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * 指定されたロールを持っているかチェック
+     */
+    public function hasRole($role)
+    {
+        if (is_string($role)) {
+            return $this->role->name === $role;
+        }
+        return $this->role_id === $role->id;
+    }
+
+    /**
+     * 指定されたロールのいずれかを持っているかチェック
+     */
+    public function hasAnyRole($roles)
+    {
+        if (is_array($roles)) {
+            return in_array($this->role->name, $roles);
+        }
+        return $this->hasRole($roles);
+    }
+
+    /**
+     * 管理者かどうかチェック
+     */
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
+    }
+
+    /**
+     * 店舗オーナーかどうかチェック
+     */
+    public function isOwner()
+    {
+        return $this->hasRole('owner');
+    }
+
+    /**
+     * 一般ユーザーかどうかチェック
+     */
+    public function isUser()
+    {
+        return $this->hasRole('user');
+    }
 }

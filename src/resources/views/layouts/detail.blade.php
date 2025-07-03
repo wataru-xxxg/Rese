@@ -56,6 +56,10 @@
                         <div class="review-item">
                             <div class="review-header">
                                 <div class="review-info">
+                                    <span class="review-date">{{ $review->created_at->format('Y/m/d') }}</span>
+                                    @if($review->user)
+                                    <span class="review-user">{{ $review->user->name }}さん</span>
+                                    @endif
                                     <div class="review-rating">
                                         @for($i = 1; $i <= 5; $i++)
                                             @if($i <=$review->rating)
@@ -65,11 +69,7 @@
                                             @endif
                                             @endfor
                                     </div>
-                                    @if($review->user)
-                                    <span class="review-user">{{ $review->user->name }}さん</span>
-                                    @endif
                                 </div>
-                                <span class="review-date">{{ $review->created_at->format('Y/m/d') }}</span>
                             </div>
                             <div class="review-comment">
                                 <p>{{ $review->comment }}</p>

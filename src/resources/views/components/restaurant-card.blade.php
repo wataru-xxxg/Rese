@@ -18,7 +18,11 @@
             <span class="rating-text">{{ $shop->average_rating }}/5 ({{ $shop->review_count }}件)</span>
         </div>
         <div class="card-actions">
+            @if ($isOwner)
+            <a href="{{ route('owner.shops.edit', $shop->id) }}" class="edit-btn">編集</a>
+            @else
             <a href="{{ route('detail', $shop->id) }}" class="details-btn">詳しくみる</a>
+            @endif
             @if (Auth::check())
             @livewire('favorite', ['shop' => $shop])
             @endif

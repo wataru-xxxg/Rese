@@ -39,7 +39,8 @@ class ShopController extends Controller
         $reservation->time = $request->time;
         $reservation->number = $request->number;
         $reservation->save();
-        return redirect()->route('done');
+        $message = 'ご予約ありがとうございます';
+        return redirect()->route('done', compact('message'));
     }
 
     public function reservationChangePage(Request $request)
@@ -57,11 +58,13 @@ class ShopController extends Controller
         $reservation->time = $request->time;
         $reservation->number = $request->number;
         $reservation->save();
-        return redirect()->route('done');
+        $message = '予約を変更しました';
+        return redirect()->route('done', compact('message'));
     }
-    public function done()
+
+    public function done($message = null)
     {
-        return view('done');
+        return view('done', compact('message'));
     }
 
     public function reviewPage($id)
@@ -90,6 +93,7 @@ class ShopController extends Controller
                 'rating' => $request->rating,
                 'comment' => $request->comment
             ]);
+            $message = 'レビューを更新しました';
         } else {
             // 新しいレビューを作成
             Review::create([
@@ -99,8 +103,9 @@ class ShopController extends Controller
                 'rating' => $request->rating,
                 'comment' => $request->comment
             ]);
+            $message = 'レビューを投稿しました';
         }
 
-        return redirect()->route('done');
+        return redirect()->route('done', compact('message'));
     }
 }

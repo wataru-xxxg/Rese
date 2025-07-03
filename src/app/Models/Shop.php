@@ -9,6 +9,20 @@ class Shop extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'area_id',
+        'genre_id',
+        'description',
+        'image_path',
+        'owner_id',
+    ];
+
     public function area()
     {
         return $this->belongsTo(Area::class);
@@ -22,6 +36,22 @@ class Shop extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    /**
+     * 店舗のオーナーを取得
+     */
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    /**
+     * 店舗の予約を取得
+     */
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
     }
 
     public function getAverageRatingAttribute()

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
+<link rel="stylesheet" href="{{ asset('css/owner/mypage.css') }}">
 <link rel="stylesheet" href="{{ asset('css/components/favorite.css') }}">
 <link rel="stylesheet" href="{{ asset('css/components/restaurant-card.css') }}">
 @endsection
@@ -42,20 +42,16 @@
                     <span class="number-label">Number</span>
                     <span class="value">{{ $reservation->number }}人</span>
                 </div>
-                <div class="button-container">
-                    <a href="{{ route('reservation-change', $reservation->id) }}" class="change-btn">予約変更</a>
-                    <a href="{{ route('review', $reservation->id) }}" class="review-btn">レビュー</a>
-                </div>
             </div>
         </div>
         @endforeach
     </div>
 
-    <div class="favorites-section">
-        <h3 class="section-title">お気に入り店舗</h3>
+    <div class="shops-section">
+        <h3 class="section-title">店舗一覧</h3>
         <div class="restaurant-cards">
-            @foreach ($favorites as $favorite)
-            @include('components.restaurant-card', ['shop' => $favorite->shop])
+            @foreach ($shops as $shop)
+            @include('components.restaurant-card', ['shop' => $shop, 'isOwner' => $isOwner])
             @endforeach
         </div>
     </div>

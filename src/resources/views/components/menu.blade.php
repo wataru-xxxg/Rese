@@ -8,6 +8,18 @@
             <li class="nav-item">
                 <a href="/" class="nav-link">Home</a>
             </li>
+            @if (Auth::check() && Auth::user()->role_id == 2)
+            <li class="nav-item">
+                <a href="{{ route('admin.register.owner') }}" class="nav-link">Registration</a>
+            </li>
+            @elseif (Auth::check() && Auth::user()->role_id == 3)
+            <li class="nav-item">
+                <a href="{{ route('owner.mypage') }}" class="nav-link">Shops</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('owner.shops.create') }}" class="nav-link">Create</a>
+            </li>
+            @endif
             @if (Auth::check())
             <li class="nav-item">
                 <form action="/logout" method="post">

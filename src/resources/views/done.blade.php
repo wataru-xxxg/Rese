@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="confirmation-card">
-    <p class="confirmation-message">ご予約ありがとうございます</p>
+    <p class="confirmation-message">{{ $message }}</p>
     <a href="{{ route('index') }}" class="back-button">戻る</a>
 </div>
 @endsection

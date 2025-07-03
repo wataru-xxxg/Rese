@@ -1,0 +1,184 @@
+/* レビュー表示セクションのスタイル */
+.reviews-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.5rem;
+}
+
+.no-reviews {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 2rem 0;
+}
+
+.container {
+    display: flex;
+    max-width: 1380px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.left-section {
+    flex: 1;
+}
+
+.restaurant-info {
+    max-width: 100%;
+    padding: 0 30px;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.back-button span:first-child {
+    font-weight: bold;
+}
+
+.back-button-icon {
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.restaurant-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    background-color: #f0f0f0;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.description {
+    line-height: 1.6;
+    color: #555;
+    font-size: 14px;
+}
+
+.right-section {
+    flex: 0 0 50%;
+    background-color: #4f63d2;
+    margin: 50px 30px;
+    padding: 40px 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+.reservation-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    color: #333;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.form-error {
+    color: #ffd700;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.reserve-button {
+    display: block;
+    width: calc(100% + 60px);
+    padding: 16px;
+    background-color: #3b4fbf;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-bottom: -40px;
+}
+
+.reserve-button:hover {
+    background-color: #2a3ba6;
+}
+
+.reserve-button:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .right-section {
+        flex: none;
+    }
+
+    .left-section {
+        max-width: none;
+    }
+}
