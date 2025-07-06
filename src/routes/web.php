@@ -5,7 +5,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\QrCodeController;
-use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +35,11 @@ Route::middleware('auth')->group(function () {
     // QRコード関連ルート
     Route::get('/qrcode/generate', [QrCodeController::class, 'generate'])->name('qrcode.generate');
     Route::get('/qrcode/reservation/{id}', [QrCodeController::class, 'reservationQrCode'])->name('qrcode.reservation');
+
+    // Stripe関連ルート
+    Route::get('/stripe/payment/{id}', [StripeController::class, 'payment'])->name('stripe.payment');
+    Route::get('/stripe/success/{id}', [StripeController::class, 'success'])->name('stripe.success');
+    Route::get('/stripe/cancel/{id}', [StripeController::class, 'cancel'])->name('stripe.cancel');
 });
 
 // 管理者専用ルート

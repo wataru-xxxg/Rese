@@ -46,7 +46,7 @@
                     <a href="{{ route('reservation-change', $reservation->id) }}" class="change-btn">予約変更</a>
                     <a href="{{ route('review', $reservation->id) }}" class="review-btn">レビュー</a>
                     <a href="{{ route('qrcode.reservation', $reservation->id) }}" class="qrcode-btn">QRコード</a>
-                    <a href="{{ route('payment.form', $reservation->id) }}" class="payment-btn">支払</a>
+                    <a href="{{ route('stripe.payment', $reservation->id) }}" class="payment-btn">支払</a>
                 </div>
             </div>
         </div>
