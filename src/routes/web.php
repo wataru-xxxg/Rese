@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OwnerController;
+use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/review/{id}', [ShopController::class, 'reviewPage'])->name('review-page');
     Route::post('/review/{id}', [ShopController::class, 'review'])->name('review');
     Route::get('/mypage', [ShopController::class, 'mypage'])->name('mypage');
+
+    // QRコード関連ルート
+    Route::get('/qrcode/generate', [QrCodeController::class, 'generate'])->name('qrcode.generate');
+    Route::get('/qrcode/reservation/{id}', [QrCodeController::class, 'reservationQrCode'])->name('qrcode.reservation');
 });
 
 // 管理者専用ルート
@@ -39,23 +45,14 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
 // 店舗オーナー専用ルート
 Route::middleware(['auth', 'role:owner'])->prefix('owner')->name('owner.')->group(function () {
-    Route::get('/owner/mypage', [OwnerController::class, 'mypage'])->name('mypage');
+    Route::get('/mypage', [OwnerController::class, 'mypage'])->name('mypage');
 
     // 自分の店舗管理
-    Route::get('/shops', [OwnerController::class, 'myShops'])->name('shops');
     Route::get('/shops/create', [OwnerController::class, 'createShop'])->name('shops.create');
     Route::post('/shops/create', [OwnerController::class, 'storeShop'])->name('shops.store');
     Route::get('/shops/{id}', [OwnerController::class, 'shopDetail'])->name('shops.detail');
     Route::get('/shops/{id}/edit', [OwnerController::class, 'editShop'])->name('shops.edit');
     Route::put('/shops/{id}', [OwnerController::class, 'updateShop'])->name('shops.update');
-
-    // 予約管理
-    Route::get('/reservations', [OwnerController::class, 'reservations'])->name('reservations');
-    Route::get('/reservations/{id}', [OwnerController::class, 'reservationDetail'])->name('reservations.detail');
-
-    // レビュー管理
-    Route::get('/reviews', [OwnerController::class, 'reviews'])->name('reviews');
-    Route::get('/reviews/{id}', [OwnerController::class, 'reviewDetail'])->name('reviews.detail');
 });
 
 // 複数ロールでアクセス可能なルート

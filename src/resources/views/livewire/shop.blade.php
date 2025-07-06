@@ -14,7 +14,7 @@
             </header>
 
             <div class="restaurant-info">
-                <a href="{{ route('index') }}" class="back-button">
+                <a href="{{ route('owner.mypage') }}" class="back-button">
                     <span class="back-button-icon">&lt;</span>
                     <span>{{ $name }}</span>
                 </a>
@@ -23,7 +23,7 @@
                     <img src="
     @if ($image)
     {{ $image->temporaryUrl() }}
-    @else
+    @elseif ($shop)
     {{ asset(Storage::url($shop->image_path)) }}
     @endif
     " alt="イメージ画像" class="restaurant-image">
@@ -48,8 +48,15 @@
             <div class="reservation-form">
                 <h2 class="reservation-title">編集</h2>
 
-                <form action="{{ route('owner.shops.store') }}" method="post" id="shop-form" enctype="multipart/form-data">
+                <form action="@isset($shop)
+                {{ route('owner.shops.update', $shop->id) }}
+                @else
+                {{ route('owner.shops.store') }}
+                @endif" method="post" id="shop-form" enctype="multipart/form-data">
                     @csrf
+                    @isset($shop)
+                    @method('PUT')
+                    @endif
 
                     <div class="form-group">
                         <input type="text" class="form-input" name="name" placeholder="name" wire:model="name">
@@ -95,7 +102,11 @@
                 </form>
             </div>
 
+            @isset($shop)
+            <button form="shop-form" type="submit" class="update-button">更新する</button>
+            @else
             <button form="shop-form" type="submit" class="create-button">作成する</button>
+            @endif
         </section>
     </div>
 </div>

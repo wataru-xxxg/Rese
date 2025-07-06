@@ -131,6 +131,19 @@
     margin-left: 10px;
 }
 
+.qrcode-btn {
+    background-color: #4f77ff;
+    color: white;
+    border: 1px solid #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
 .restaurant-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

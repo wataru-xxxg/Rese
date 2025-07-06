@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Reservation;
 use App\Models\Review;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
 use App\Http\Requests\ReservationRequest;

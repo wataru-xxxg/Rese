@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Reservation;
-use App\Models\Review;
 use Illuminate\Support\Facades\Auth;
 
 class OwnerController extends Controller
@@ -78,10 +77,7 @@ class OwnerController extends Controller
      */
     public function updateShop(Request $request, $id)
     {
-        $user = Auth::user();
-        $shop = Shop::where('id', $id)
-            ->where('owner_id', $user->id)
-            ->firstOrFail();
+        $shop = Shop::find($id);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -89,62 +85,27 @@ class OwnerController extends Controller
             'image_url' => 'nullable|url',
         ]);
 
-        $shop->update($request->all());
+        $name = $request->name;
+        $area_id = $request->area_id;
+        $genre_id = $request->genre_id;
+        $description = $request->description;
 
-        return redirect()->route('owner.shops')->with('success', '店舗情報を更新しました');
-    }
+        $shop->update([
+            'name' => $name,
+            'area_id' => $area_id,
+            'genre_id' => $genre_id,
+            'description' => $description,
+        ]);
 
-    /**
-     * 予約一覧
-     */
-    public function reservations()
-    {
-        $user = Auth::user();
-        $reservations = Reservation::whereIn('shop_id', function ($query) use ($user) {
-            $query->select('id')->from('shops')->where('owner_id', $user->id);
-        })->with(['user', 'shop'])->paginate(10);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_path = $image->store('public/image/shop');
+            $shop->image_path = $image_path;
+            $shop->save();
+        }
 
-        return view('owner.reservations.index', compact('reservations'));
-    }
+        $message = '店舗情報を更新しました';
 
-    /**
-     * 予約詳細
-     */
-    public function reservationDetail($id)
-    {
-        $user = Auth::user();
-        $reservation = Reservation::where('id', $id)
-            ->whereIn('shop_id', function ($query) use ($user) {
-                $query->select('id')->from('shops')->where('owner_id', $user->id);
-            })->with(['user', 'shop'])->firstOrFail();
-
-        return view('owner.reservations.detail', compact('reservation'));
-    }
-
-    /**
-     * レビュー一覧
-     */
-    public function reviews()
-    {
-        $user = Auth::user();
-        $reviews = Review::whereIn('shop_id', function ($query) use ($user) {
-            $query->select('id')->from('shops')->where('owner_id', $user->id);
-        })->with(['user', 'shop'])->paginate(10);
-
-        return view('owner.reviews.index', compact('reviews'));
-    }
-
-    /**
-     * レビュー詳細
-     */
-    public function reviewDetail($id)
-    {
-        $user = Auth::user();
-        $review = Review::where('id', $id)
-            ->whereIn('shop_id', function ($query) use ($user) {
-                $query->select('id')->from('shops')->where('owner_id', $user->id);
-            })->with(['user', 'shop'])->firstOrFail();
-
-        return view('owner.reviews.detail', compact('review'));
+        return redirect()->route('done', compact('message'));
     }
 }
