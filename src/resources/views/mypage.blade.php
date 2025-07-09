@@ -42,12 +42,12 @@
                     <span class="number-label">Number</span>
                     <span class="value">{{ $reservation->number }}人</span>
                 </div>
-                <div class="button-container">
-                    <a href="{{ route('reservation-change', $reservation->id) }}" class="change-btn">予約変更</a>
-                    <a href="{{ route('review', $reservation->id) }}" class="review-btn">レビュー</a>
-                    <a href="{{ route('qrcode.reservation', $reservation->id) }}" class="qrcode-btn">QRコード</a>
-                    <a href="{{ route('stripe.payment', $reservation->id) }}" class="payment-btn">支払</a>
-                </div>
+            </div>
+            <div class="button-container">
+                <a href="{{ route('reservation-change', $reservation->id) }}" class="change-btn">予約変更</a>
+                <a href="{{ route('review', $reservation->id) }}" class="review-btn">レビュー</a>
+                <a href="{{ route('qrcode.reservation', $reservation->id) }}" class="qrcode-btn">QRコード</a>
+                <a href="{{ route('stripe.payment', $reservation->id) }}" class="payment-btn">支払</a>
             </div>
         </div>
         @endforeach
