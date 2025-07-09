@@ -6,6 +6,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\NotificationController;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +27,7 @@ Route::get('/detail/{id}', [ShopController::class, 'detail'])->name('detail');
 Route::get('/done/{message?}', [ShopController::class, 'done'])->name('done');
 
 // 認証が必要なルート（一般ユーザー）
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/detail/{id}', [ShopController::class, 'reservation'])->name('reservation');
     Route::get('/reservation-change/{id}', [ShopController::class, 'reservationChangePage'])->name('reservation-change-page');
     Route::post('/reservation-change/{id}', [ShopController::class, 'reservationChange'])->name('reservation-change');
@@ -58,6 +61,10 @@ Route::middleware(['auth', 'role:owner'])->prefix('owner')->name('owner.')->grou
     Route::get('/shops/{id}', [OwnerController::class, 'shopDetail'])->name('shops.detail');
     Route::get('/shops/{id}/edit', [OwnerController::class, 'editShop'])->name('shops.edit');
     Route::put('/shops/{id}', [OwnerController::class, 'updateShop'])->name('shops.update');
+
+    // お知らせメール関連ルート
+    Route::get('/notification/{id}', [NotificationController::class, 'showNotificationForm'])->name('notification.form');
+    Route::post('/notification/{id}', [NotificationController::class, 'sendNotification'])->name('notification.send');
 });
 
 // 複数ロールでアクセス可能なルート
@@ -67,3 +74,16 @@ Route::middleware(['auth', 'role:admin,owner'])->prefix('management')->name('man
         return view('management.analytics');
     })->name('analytics');
 });
+
+// メール認証ルート
+Route::get('/email/verify', [App\Http\Controllers\EmailVerificationController::class, 'show'])
+    ->middleware('auth')
+    ->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', [App\Http\Controllers\EmailVerificationController::class, 'verify'])
+    ->middleware(['auth', 'signed'])
+    ->name('verification.verify');
+
+Route::post('/email/verification-notification', [App\Http\Controllers\EmailVerificationController::class, 'resend'])
+    ->middleware(['auth', 'throttle:6,1'])
+    ->name('verification.send');
