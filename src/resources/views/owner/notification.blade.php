@@ -52,7 +52,7 @@
 
         <div class="form-group">
             <label for="message_type" class="form-label">メッセージタイプ</label>
-            <select name="message_type" id="message_type" class="form-select" required>
+            <select name="message_type" id="message_type" class="form-select">
                 <option value="">選択してください</option>
                 <option value="info">お知らせ</option>
                 <option value="reminder">リマインダー</option>
