@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Notifications\ReservationNotification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\NotificationRequest;
 
 class NotificationController extends Controller
 {
@@ -28,13 +28,8 @@ class NotificationController extends Controller
     /**
      * お知らせメールを送信
      */
-    public function sendNotification(Request $request, $reservationId)
+    public function sendNotification(NotificationRequest $request, $reservationId)
     {
-        $request->validate([
-            'message_type' => 'required|in:info,reminder,change,cancel',
-            'custom_message' => 'nullable|string|max:500'
-        ]);
-
         $reservation = Reservation::with(['shop', 'user'])->findOrFail($reservationId);
 
         // オーナー権限チェック
