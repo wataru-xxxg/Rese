@@ -93,3 +93,15 @@
     color: #3274e6;
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    .navigation {
+        left: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation {
+        left: 40%;
+    }
+}

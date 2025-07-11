@@ -41,12 +41,16 @@ class Shop extends Component
 
     public function updatedAreaId()
     {
-        $this->areaName = Area::find($this->area_id)->name;
+        if ($this->area_id) {
+            $this->areaName = Area::find($this->area_id)->name;
+        }
     }
 
     public function updatedGenreId()
     {
-        $this->genreName = Genre::find($this->genre_id)->name;
+        if ($this->genre_id) {
+            $this->genreName = Genre::find($this->genre_id)->name;
+        }
     }
 
     public function render()

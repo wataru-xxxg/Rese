@@ -58,8 +58,8 @@
             'time' => $reservation->time,
             'number' => $reservation->number,
             'user_name' => $reservation->user->name
-        ])) }}" class="btn btn-primary" download="reservation-qrcode.svg">QRコードをダウンロード</a>
-        <a href="{{ route('mypage') }}" class="btn btn-secondary">マイページに戻る</a>
+        ])) }}" class="download-button" download="reservation-qrcode.svg">QRコードをダウンロード</a>
+        <a href="{{ route('mypage') }}" class="back-button">マイページに戻る</a>
     </div>
 </div>
 @endsection

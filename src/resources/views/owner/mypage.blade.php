@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="button-container">
-                <a href="{{ route('owner.notification.form', $reservation->id) }}" class="change-btn">お知らせ</a>
+                <a href="{{ route('owner.notification.form', $reservation->id) }}" class="notification-btn">お知らせ</a>
             </div>
         </div>
         @endforeach

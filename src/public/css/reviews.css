@@ -64,12 +64,10 @@
 
 .review-date {
     font-size: 0.875rem;
-    color: #666;
     font-weight: 500;
 }
 
 .review-comment {
-    color: #333;
     line-height: 1.6;
 }
 
@@ -80,7 +78,6 @@
 
 .no-reviews {
     text-align: center;
-    color: #666;
     font-style: italic;
     padding: 2rem 0;
 }

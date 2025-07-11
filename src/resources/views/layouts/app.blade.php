@@ -19,7 +19,7 @@
         <div class="header-container">
             <div class="logo">
                 <a class="menu-button" href="#modal-menu">
-                    <div class="logo-icon"></div>
+                    <img src="{{ asset('logo.png') }}" alt="ロゴ画像" class="logo-icon">
                 </a>
                 <h1 class="logo-text">Rese</h1>
             </div>

@@ -214,3 +214,24 @@
         font-size: 1.5rem;
     }
 }
+
+@media (max-width: 480px) {
+    .button-container {
+        flex-direction: column;
+    }
+
+    .shop-label, .date-label, .time-label {
+        margin-right: 50px;
+    }
+
+    .number-label {
+        margin-right: 30px;
+    }
+
+    .review-btn,
+    .qrcode-btn,
+    .payment-btn {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+}

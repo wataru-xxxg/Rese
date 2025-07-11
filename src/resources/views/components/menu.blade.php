@@ -8,7 +8,11 @@
             <li class="nav-item">
                 <a href="/" class="nav-link">Home</a>
             </li>
-            @if (Auth::check() && Auth::user()->role_id == 2)
+            @if (Auth::check() && Auth::user()->role_id == 1)
+            <li class="nav-item">
+                <a href="{{ route('mypage') }}" class="nav-link">Mypage</a>
+            </li>
+            @elseif (Auth::check() && Auth::user()->role_id == 2)
             <li class="nav-item">
                 <a href="{{ route('admin.register.owner') }}" class="nav-link">Registration</a>
             </li>
@@ -26,9 +30,6 @@
                     @csrf
                     <button class="nav-link logout-button">Logout</button>
                 </form>
-            </li>
-            <li class="nav-item">
-                <a href="{{ route('mypage') }}" class="nav-link">Mypage</a>
             </li>
             @else
             <li class="nav-item">
