@@ -40,27 +40,27 @@
                 <label for="rating" class="rating-label">評価</label>
                 @if($reservation->date < date('Y-m-d'))
                     <div class="star-rating">
-                    <input type="radio" name="rating" value="5" id="star5" class="star-input" {{ $existingReview && $existingReview->rating == 5 ? 'checked' : '' }}>
+                    <input type="radio" name="rating" value="5" id="star5" class="star-input" @if(old('rating') == 5) checked @elseif($existingReview && $existingReview->rating == 5) checked @endif>
                     <label for="star5" class="star-label">★</label>
-                    <input type="radio" name="rating" value="4" id="star4" class="star-input" {{ $existingReview && $existingReview->rating == 4 ? 'checked' : '' }}>
+                    <input type="radio" name="rating" value="4" id="star4" class="star-input" @if(old('rating') == 4) checked @elseif($existingReview && $existingReview->rating == 4) checked @endif>
                     <label for="star4" class="star-label">★</label>
-                    <input type="radio" name="rating" value="3" id="star3" class="star-input" {{ $existingReview && $existingReview->rating == 3 ? 'checked' : '' }}>
+                    <input type="radio" name="rating" value="3" id="star3" class="star-input" @if(old('rating') == 3) checked @elseif($existingReview && $existingReview->rating == 3) checked @endif>
                     <label for="star3" class="star-label">★</label>
-                    <input type="radio" name="rating" value="2" id="star2" class="star-input" {{ $existingReview && $existingReview->rating == 2 ? 'checked' : '' }}>
+                    <input type="radio" name="rating" value="2" id="star2" class="star-input" @if(old('rating') == 2) checked @elseif($existingReview && $existingReview->rating == 2) checked @endif>
                     <label for="star2" class="star-label">★</label>
-                    <input type="radio" name="rating" value="1" id="star1" class="star-input" {{ $existingReview && $existingReview->rating == 1 ? 'checked' : '' }}>
+                    <input type="radio" name="rating" value="1" id="star1" class="star-input" @if(old('rating') == 1) checked @elseif($existingReview && $existingReview->rating == 1) checked @endif>
                     <label for="star1" class="star-label">★</label>
             </div>
             @endif
+            @error('rating')
+            <span class="error-message">{{ $message }}</span>
+            @enderror
         </div>
-        @error('rating')
-        <span class="error-message">{{ $message }}</span>
-        @enderror
 
         <div class="comment-section">
             <label for="comment" class="comment-label">コメント</label>
             @if($reservation->date < date('Y-m-d'))
-                <textarea name="comment" id="comment" class="comment-textarea" placeholder="お店の感想を教えてください" rows="5">{{ $existingReview ? $existingReview->comment : '' }}</textarea>
+                <textarea name="comment" id="comment" class="comment-textarea" placeholder="お店の感想を教えてください" rows="5">@if(old('comment')) {{ old('comment') }} @elseif($existingReview) {{ $existingReview->comment }} @endif</textarea>
                 @endif
                 @error('comment')
                 <span class="error-message">{{ $message }}</span>

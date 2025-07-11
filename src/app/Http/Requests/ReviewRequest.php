@@ -13,7 +13,7 @@ class ReviewRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class ReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'rating' => 'required',
+            'comment' => 'required|max:1000'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'rating.required' => '評価を選択してください',
+            'comment.required' => 'コメントを入力してください',
+            'comment.max' => 'コメントは1000文字以内にしてください',
         ];
     }
 }

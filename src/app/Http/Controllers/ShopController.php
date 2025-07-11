@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Reservation;
 use App\Models\Review;
-use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
 use App\Http\Requests\ReservationRequest;
+use App\Http\Requests\ReviewRequest;
 
 class ShopController extends Controller
 {
@@ -21,7 +21,12 @@ class ShopController extends Controller
     public function detail($id)
     {
         $shop = Shop::with(['reviews.user'])->find($id);
-        return view('reservation', compact('shop'));
+        if (url()->previous() == route('mypage')) { 
+            $back_url = route('mypage');
+        } else {
+            $back_url = route('index');
+        }
+        return view('reservation', compact('shop', 'back_url'));
     }
 
     public function mypage()
@@ -49,7 +54,8 @@ class ShopController extends Controller
         $id = $request->id;
         $reservation = Reservation::find($id);
         $shop = Shop::find($reservation->shop_id);
-        return view('reservation-change', compact('reservation', 'shop'));
+        $back_url = route('mypage');
+        return view('reservation-change', compact('reservation', 'shop', 'back_url'));
     }
 
     public function reservationChange(ReservationRequest $request, $id)
@@ -73,16 +79,12 @@ class ShopController extends Controller
         $reservation = Reservation::find($id);
         $shop = Shop::find($reservation->shop_id);
         $existingReview = Review::where('reservation_id', $id)->first();
-        return view('review', compact('reservation', 'shop', 'existingReview'));
+        $back_url = route('mypage');
+        return view('review', compact('reservation', 'shop', 'existingReview', 'back_url'));
     }
 
-    public function review(Request $request, $id)
+    public function review(ReviewRequest $request, $id)
     {
-        $request->validate([
-            'rating' => 'required|integer|between:1,5',
-            'comment' => 'required|string|max:1000'
-        ]);
-
         $reservation = Reservation::find($id);
 
         // 既存のレビューがあるかチェック
