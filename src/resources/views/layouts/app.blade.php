@@ -21,7 +21,7 @@
                 <a class="menu-button" href="#modal-menu">
                     <img src="{{ asset('logo.png') }}" alt="ロゴ画像" class="logo-icon">
                 </a>
-                <h1 class="logo-text">Rese</h1>
+                <h1 class="logo-text"><a class="logo-link" href="{{ route('index') }}">Rese</a></h1>
             </div>
             @if (Route::is('index'))
             @livewire('search')

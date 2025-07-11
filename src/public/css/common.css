@@ -39,3 +39,11 @@ body {
     color: #4169e1;
     font-weight: bold;
 }
+
+.logo-link {
+    text-decoration: none;
+}
+
+.logo-link:visited {
+    color: #4169e1;
+}
