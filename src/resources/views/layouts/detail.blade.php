@@ -30,61 +30,57 @@
             </header>
 
             <div class="restaurant-info">
-                @if(url()->previous() == route('mypage'))
-                <a href="{{ route('mypage') }}" class="back-button">
-                    @else
-                    <a href="{{ route('index') }}" class="back-button">
-                        @endif
-                        <span class="back-button-icon">&lt;</span>
-                        <span>{{ $shop->name }}</span>
-                    </a>
+                <a href="{{ $back_url }}" class="back-button">
+                    <span class="back-button-icon">&lt;</span>
+                    <span>{{ $shop->name }}</span>
+                </a>
 
-                    <div class="image-container">
-                        <img src="{{ asset(Storage::url($shop->image_path)) }}" alt="イメージ画像" class="restaurant-image">
-                    </div>
+                <div class="image-container">
+                    <img src="{{ asset(Storage::url($shop->image_path)) }}" alt="イメージ画像" class="restaurant-image">
+                </div>
 
-                    <div class="tags">
-                        <span class="tag">#{{ $shop->area->name }}</span>
-                        <span class="tag">#{{ $shop->genre->name }}</span>
-                    </div>
+                <div class="tags">
+                    <span class="tag">#{{ $shop->area->name }}</span>
+                    <span class="tag">#{{ $shop->genre->name }}</span>
+                </div>
 
-                    <div class="description">
-                        <p>{{ $shop->description }}</p>
-                    </div>
+                <div class="description">
+                    <p>{{ $shop->description }}</p>
+                </div>
 
-                    <div class="reviews-section">
-                        <h3 class="reviews-title">レビュー</h3>
-                        @if($shop->reviews->count() > 0)
-                        <div class="reviews-container">
-                            @foreach($shop->reviews as $review)
-                            <div class="review-item">
-                                <div class="review-header">
-                                    <div class="review-info">
-                                        <span class="review-date">{{ $review->created_at->format('Y/m/d') }}</span>
-                                        @if($review->user)
-                                        <span class="review-user">{{ $review->user->name }}さん</span>
-                                        @endif
-                                        <div class="review-rating">
-                                            @for($i = 1; $i <= 5; $i++)
-                                                @if($i <=$review->rating)
-                                                <span class="star filled">★</span>
-                                                @else
-                                                <span class="star">☆</span>
-                                                @endif
-                                                @endfor
-                                        </div>
+                <div class="reviews-section">
+                    <h3 class="reviews-title">レビュー</h3>
+                    @if($shop->reviews->count() > 0)
+                    <div class="reviews-container">
+                        @foreach($shop->reviews as $review)
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="review-info">
+                                    <span class="review-date">{{ $review->created_at->format('Y/m/d') }}</span>
+                                    @if($review->user)
+                                    <span class="review-user">{{ $review->user->name }}さん</span>
+                                    @endif
+                                    <div class="review-rating">
+                                        @for($i = 1; $i <= 5; $i++)
+                                            @if($i <=$review->rating)
+                                            <span class="star filled">★</span>
+                                            @else
+                                            <span class="star">☆</span>
+                                            @endif
+                                            @endfor
                                     </div>
                                 </div>
-                                <div class="review-comment">
-                                    <p>{{ $review->comment }}</p>
-                                </div>
                             </div>
-                            @endforeach
+                            <div class="review-comment">
+                                <p>{{ $review->comment }}</p>
+                            </div>
                         </div>
-                        @else
-                        <p class="no-reviews">まだレビューがありません。</p>
-                        @endif
+                        @endforeach
                     </div>
+                    @else
+                    <p class="no-reviews">まだレビューがありません。</p>
+                    @endif
+                </div>
             </div>
         </section>
         <section class="right-section">
