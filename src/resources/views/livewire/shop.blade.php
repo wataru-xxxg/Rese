@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea class="form-input" name="description" placeholder="description" wire:model="description"></textarea>
+                        <textarea class="form-textarea" name="description" placeholder="description" wire:model="description"></textarea>
                     </div>
                 </form>
             </div>

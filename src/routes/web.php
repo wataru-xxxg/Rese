@@ -7,8 +7,6 @@ use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\NotificationController;
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------

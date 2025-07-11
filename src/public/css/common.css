@@ -31,33 +31,7 @@ body {
 .logo-icon {
     width: 40px;
     height: 40px;
-    background-color: #4169e1;
-    border-radius: 8px;
-    position: relative;
-}
-
-.logo-icon::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24px;
-    height: 16px;
-    background-color: white;
-    border-radius: 2px;
-}
-
-.logo-icon::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 16px;
-    height: 2px;
-    background-color: #4169e1;
-    border-radius: 1px;
+    margin-right: 10px;
 }
 
 .logo-text {

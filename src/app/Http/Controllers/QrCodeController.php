@@ -40,7 +40,7 @@ class QrCodeController extends Controller
             'user_name' => $reservation->user->name
         ]);
 
-        $qrCode = QrCode::size(300)
+        $qrCode = QrCode::size(200)
             ->format('svg')
             ->generate($data);
 

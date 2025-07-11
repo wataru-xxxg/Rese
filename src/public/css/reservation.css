@@ -56,18 +56,8 @@
     margin-bottom: 20px;
 }
 
-.tag {
-    background-color: #f0f0f0;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    color: #666;
-}
-
 .description {
     line-height: 1.6;
-    color: #555;
-    font-size: 14px;
 }
 
 .right-section {
@@ -200,5 +190,19 @@
 
     .left-section {
         max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .date-input {
+        width: 100%;
+    }
+
+    .shop-label, .date-label, .time-label {
+        margin-right: 50px;
+    }
+
+    .number-label {
+        margin-right: 30px;
     }
 }

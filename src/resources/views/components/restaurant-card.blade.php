@@ -23,7 +23,7 @@
             @else
             <a href="{{ route('detail', $shop->id) }}" class="details-btn">詳しくみる</a>
             @endif
-            @if (Auth::check())
+            @if (Auth::check() && Auth::user()->role_id == 1)
             @livewire('favorite', ['shop' => $shop])
             @endif
         </div>
