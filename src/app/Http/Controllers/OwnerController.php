@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ShopRequest;
 
 class OwnerController extends Controller
 {
@@ -38,7 +38,7 @@ class OwnerController extends Controller
     /**
      * 店舗作成処理
      */
-    public function storeShop(Request $request)
+    public function storeShop(ShopRequest $request)
     {
         $name = $request->name;
         $description = $request->description;
@@ -57,7 +57,7 @@ class OwnerController extends Controller
             'owner_id' => $user->id,
         ]);
 
-        $message = '店舗情報を更新しました';
+        $message = '店舗情報を作成しました';
 
         return redirect()->route('done', compact('message'));
     }
@@ -75,15 +75,9 @@ class OwnerController extends Controller
     /**
      * 店舗更新処理
      */
-    public function updateShop(Request $request, $id)
+    public function updateShop(ShopRequest $request, $id)
     {
         $shop = Shop::find($id);
-
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image_url' => 'nullable|url',
-        ]);
 
         $name = $request->name;
         $area_id = $request->area_id;

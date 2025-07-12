@@ -47,3 +47,8 @@ body {
 .logo-link:visited {
     color: #4169e1;
 }
+
+.form-error {
+    color: red;
+    font-weight: bold;
+}

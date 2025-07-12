@@ -6,9 +6,9 @@
                 <div class="header-container">
                     <div class="logo">
                         <a class="menu-button" href="#modal-menu">
-                            <div class="logo-icon"></div>
+                            <img src="{{ asset('logo.png') }}" alt="ロゴ画像" class="logo-icon">
                         </a>
-                        <h1 class="logo-text">Rese</h1>
+                        <h1 class="logo-text"><a class="logo-link" href="{{ route('index') }}">Rese</a></h1>
                     </div>
                 </div>
             </header>
@@ -56,13 +56,22 @@
                     @csrf
                     @isset($shop)
                     @method('PUT')
+                    <input type="hidden" name="create_flag" value="0">
+                    @else
+                    <input type="hidden" name="create_flag" value="1">
                     @endif
+
+                    @error('name')
+                    <div class="form-error">
+                        {{ $message }}
+                    </div>
+                    @enderror
 
                     <div class="form-group">
                         <input type="text" class="form-input" name="name" placeholder="name" wire:model="name">
                     </div>
 
-                    @error('image_path')
+                    @error('image')
                     <div class="form-error">
                         {{ $message }}
                     </div>
@@ -82,22 +91,34 @@
                         <select class="form-input" name="area_id" wire:model="area_id">
                             <option selected value="">area</option>
                             @foreach ($areas as $area)
-                            <option value="{{ $area->id }}">{{ $area->name }}</option>
+                            <option value="{{ $area->id }}" @if(old('area_id')==$area->id) selected @endif>{{ $area->name }}</option>
                             @endforeach
                         </select>
                     </div>
+
+                    @error('genre_id')
+                    <div class="form-error">
+                        {{ $message }}
+                    </div>
+                    @enderror
 
                     <div class="form-group">
                         <select class="form-input" name="genre_id" wire:model="genre_id">
                             <option selected value="">genre</option>
                             @foreach ($genres as $genre)
-                            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                            <option value="{{ $genre->id }}" @if(old('genre_id')==$genre->id) selected @endif>{{ $genre->name }}</option>
                             @endforeach
                         </select>
                     </div>
 
+                    @error('description')
+                    <div class="form-error">
+                        {{ $message }}
+                    </div>
+                    @enderror
+
                     <div class="form-group">
-                        <textarea class="form-textarea" name="description" placeholder="description" wire:model="description"></textarea>
+                        <textarea class="form-textarea" name="description" placeholder="description" wire:model="description" value="{{ old('description') }}"></textarea>
                     </div>
                 </form>
             </div>

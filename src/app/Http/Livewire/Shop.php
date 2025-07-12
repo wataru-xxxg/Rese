@@ -37,6 +37,24 @@ class Shop extends Component
             $this->name = $shop->name;
             $this->description = $shop->description;
         }
+
+        if (old('area_id')) {
+            $this->area_id = old('area_id');
+            $this->areaName = Area::find($this->area_id)->name;
+        }
+
+        if (old('genre_id')) {
+            $this->genre_id = old('genre_id');
+            $this->genreName = Genre::find($this->genre_id)->name;
+        }
+
+        if (old('name')) {
+            $this->name = old('name');
+        }
+
+        if (old('description')) {
+            $this->description = old('description');
+        }
     }
 
     public function updatedAreaId()
