@@ -43,7 +43,7 @@ class OwnerController extends Controller
         $name = $request->name;
         $description = $request->description;
         $image = $request->file('image');
-        $image_path = $image->store('public/image/shop');
+        $image_path = $image->store('shop', 's3');
         $area_id = $request->area_id;
         $genre_id = $request->genre_id;
         $user = Auth::user();
@@ -93,7 +93,7 @@ class OwnerController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $image_path = $image->store('public/image/shop');
+            $image_path = $image->store('shop', 's3');
             $shop->image_path = $image_path;
             $shop->save();
         }

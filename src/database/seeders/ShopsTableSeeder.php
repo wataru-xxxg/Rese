@@ -15,25 +15,21 @@ class ShopsTableSeeder extends Seeder
      */
     public function run()
     {
+        // S3に画像を保存し、S3パスを取得
         $sushiImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg');
-        Storage::put('public/image/shop/sushi.jpg', $sushiImage);
-        $sushiImagePath = 'public/image/shop/sushi.jpg';
+        $sushiImagePath = Storage::disk('s3')->put('shops/sushi.jpg', $sushiImage);
 
         $yakinikuImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg');
-        Storage::put('public/image/shop/yakiniku.jpg', $yakinikuImage);
-        $yakinikuImagePath = 'public/image/shop/yakiniku.jpg';
+        $yakinikuImagePath = Storage::disk('s3')->put('shops/yakiniku.jpg', $yakinikuImage);
 
         $izakayaImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.jpg');
-        Storage::put('public/image/shop/izakaya.jpg', $izakayaImage);
-        $izakayaImagePath = 'public/image/shop/izakaya.jpg';
+        $izakayaImagePath = Storage::disk('s3')->put('shops/izakaya.jpg', $izakayaImage);
 
         $italianImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg');
-        Storage::put('public/image/shop/italian.jpg', $italianImage);
-        $italianImagePath = 'public/image/shop/italian.jpg';
+        $italianImagePath = Storage::disk('s3')->put('shops/italian.jpg', $italianImage);
 
         $ramenImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/ramen.jpg');
-        Storage::put('public/image/shop/ramen.jpg', $ramenImage);
-        $ramenImagePath = 'public/image/shop/ramen.jpg';
+        $ramenImagePath = Storage::disk('s3')->put('shops/ramen.jpg', $ramenImage);
 
         $shops = [
             [
