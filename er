@@ -1,0 +1,61 @@
+erDiagram
+  USERS {
+    int id PK
+    string name
+    string email
+    string password
+    int role_id FK
+  }
+  ROLES {
+    int id PK
+    string name
+  }
+  SHOPS {
+    int id PK
+    string name
+    int area_id FK
+    int genre_id FK
+    string description
+    string image_path
+    int owner_id FK
+  }
+  AREAS {
+    int id PK
+    string name
+  }
+  GENRES {
+    int id PK
+    string name
+  }
+  RESERVATIONS {
+    int id PK
+    int shop_id FK
+    int user_id FK
+    date date
+    time time
+    int number
+  }
+  REVIEWS {
+    int id PK
+    int reservation_id FK
+    int shop_id FK
+    int user_id FK
+    int rating
+    text comment
+  }
+  FAVORITES {
+    int id PK
+    int shop_id FK
+    int user_id FK
+  }
+  USERS ||--o{ SHOPS : "owns"
+  USERS ||--o{ RESERVATIONS : "makes"
+  USERS ||--o{ REVIEWS : "writes"
+  USERS ||--o{ FAVORITES : "favorites"
+  USERS }o--|| ROLES : "has"
+  SHOPS ||--o{ RESERVATIONS : "has"
+  SHOPS ||--o{ REVIEWS : "has"
+  SHOPS ||--o{ FAVORITES : "has"
+  SHOPS }o--|| AREAS : "in"
+  SHOPS }o--|| GENRES : "of"
+  RESERVATIONS ||--o{ REVIEWS : "has"

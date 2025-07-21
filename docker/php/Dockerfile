@@ -7,7 +7,7 @@ RUN apt update \
   && docker-php-ext-configure gd --with-freetype --with-jpeg \
   && docker-php-ext-install pdo_mysql zip gd \
   && pecl install imagick \
-  && docker-php-ext-enable imagick \
+  && docker-php-ext-enable imagick
 
 RUN curl -sS https://getcomposer.org/installer | php \
   && mv composer.phar /usr/local/bin/composer \
