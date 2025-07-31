@@ -24,10 +24,10 @@ class ShopRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:30',
+            'name' => 'required|string|max:30',
             'area_id' => 'required',
             'genre_id' => 'required',
-            'description' => 'required|max:1000',
+            'description' => 'required|string|max:1000',
             'image' => 'required_if:create_flag,1|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
@@ -35,10 +35,12 @@ class ShopRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.string' => '店舗名を入力してください',
             'name.required' => '店舗名を入力してください',
             'name.max' => '店舗名は30文字以内にしてください',
             'area_id.required' => 'エリアを選択してください',
             'genre_id.required' => 'ジャンルを選択してください',
+            'description.string' => '店舗説明を入力してください',
             'description.required' => '店舗説明を入力してください',
             'description.max' => '店舗説明は1000文字以内にしてください',
             'image.required_if' => '画像を選択してください',

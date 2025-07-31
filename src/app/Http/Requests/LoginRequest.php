@@ -24,8 +24,8 @@ class LoginRequest extends FortifyLoginRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required|min:8',
+            'email' => 'required|email:strict,dns|string|max:191',
+            'password' => 'required|min:8|max:191',
         ];
     }
 
@@ -33,9 +33,12 @@ class LoginRequest extends FortifyLoginRequest
     {
         return [
             'email.required' => 'メールアドレスを入力してください',
-            'email.email' => 'ログイン情報が登録されていません',
+            'email.email' => 'メールアドレスを入力してください',
+            'email.string' => 'メールアドレスを入力してください',
+            'email.max' => 'メールアドレスは191文字以内で入力してください',
             'password.required' => 'パスワードを入力してください',
-            'password.min' => 'ログイン情報が登録されていません',
+            'password.min' => 'パスワードは8文字以上で入力してください',
+            'password.max' => 'パスワードは191文字以内で入力してください',
         ];
     }
 }
