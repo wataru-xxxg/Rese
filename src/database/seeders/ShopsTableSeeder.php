@@ -15,21 +15,11 @@ class ShopsTableSeeder extends Seeder
      */
     public function run()
     {
-        // S3に画像を保存し、S3パスを取得
-        $sushiImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg');
-        $sushiImagePath = Storage::disk('s3')->put('shops/sushi.jpg', $sushiImage);
-
-        $yakinikuImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg');
-        $yakinikuImagePath = Storage::disk('s3')->put('shops/yakiniku.jpg', $yakinikuImage);
-
-        $izakayaImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.jpg');
-        $izakayaImagePath = Storage::disk('s3')->put('shops/izakaya.jpg', $izakayaImage);
-
-        $italianImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg');
-        $italianImagePath = Storage::disk('s3')->put('shops/italian.jpg', $italianImage);
-
-        $ramenImage = file_get_contents('https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/ramen.jpg');
-        $ramenImagePath = Storage::disk('s3')->put('shops/ramen.jpg', $ramenImage);
+        $sushiImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/sushi.jpg";
+        $yakinikuImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/yakiniku.jpg";
+        $izakayaImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/izakaya.jpg";
+        $italianImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/italian.jpg";
+        $ramenImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/ramen.jpg";
 
         $shops = [
             [
