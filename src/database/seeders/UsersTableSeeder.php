@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
         $param = [
             'name' => 'test',
             'email' => 'test@test.com',
+            'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'role_id' => 1,
         ];
@@ -25,6 +26,7 @@ class UsersTableSeeder extends Seeder
         $param = [
             'name' => 'admin',
             'email' => 'admin@admin.com',
+            'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'role_id' => 2,
         ];
@@ -32,6 +34,7 @@ class UsersTableSeeder extends Seeder
         $param = [
             'name' => 'owner',
             'email' => 'owner@owner.com',
+            'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'role_id' => 3,
         ];
