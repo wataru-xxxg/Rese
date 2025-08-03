@@ -15,11 +15,11 @@ class ShopsTableSeeder extends Seeder
      */
     public function run()
     {
-        $sushiImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/sushi.jpg";
-        $yakinikuImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/yakiniku.jpg";
-        $izakayaImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/izakaya.jpg";
-        $italianImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/italian.jpg";
-        $ramenImagePath = "https://rese-s3-xxxg.s3.ap-northeast-1.amazonaws.com/shop/ramen.jpg";
+        $sushiImagePath = "shop/sushi.jpg";
+        $yakinikuImagePath = "shop/yakiniku.jpg";
+        $izakayaImagePath = "shop/izakaya.jpg";
+        $italianImagePath = "shop/italian.jpg";
+        $ramenImagePath = "shop/ramen.jpg";
 
         $shops = [
             [
