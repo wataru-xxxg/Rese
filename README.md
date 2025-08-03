@@ -2,13 +2,13 @@
 
 「Rese」は、飲食店などの店舗を検索・予約できる Web アプリケーションです。<br>
 ユーザーはエリアやジャンル、キーワードで店舗を探し、予約やレビュー投稿、お気に入り登録が可能です。<br>
-店舗オーナーは自身の店舗情報や予約を管理でき、管理者はオーナーの管理ができます<br>>
+店舗オーナーは自身の店舗情報や予約を管理でき、管理者はオーナーの管理ができます。<br>
 オンライン決済や QR コード発行、リマインダーメール送信など、実用的な機能を備えています。
 ![トップ画面](top.png "トップ画面")
 
 ## 作成した目的
 
-外部の飲食店予約サービスは手数料を取られるため、自社で予約サービスを持ちたいというニーズに応えるために本アプリケーションを開発しました<br>>
+外部の飲食店予約サービスは手数料を取られるため、自社で予約サービスを持ちたいというニーズに応えるために本アプリケーションを開発しました。<br>
 これにより、手数料コストを削減し、顧客との直接的な関係構築や独自のサービス展開が可能となります。
 
 ## アプリケーション URL
@@ -16,7 +16,6 @@
 - 本番環境：http://ec2-18-183-15-145.ap-northeast-1.compute.amazonaws.com/
 - 開発環境：http://localhost/
 - phpMyAdmin：http://localhost:8080/
-- mailhog：http://localhost:8025/
 
 ## 機能一覧
 
@@ -146,18 +145,20 @@
 
 ## 環境構築
 
-Docker ビルド  
-1.git clone https://github.com/wataru-xxxg/Rese.git
-1.docker-compose up -d --build
+Docker ビルド
 
-Lavaral 環境構築  
-1.docker-compose exec php bash  
-1.composer install  
-1.cp .env.example .env  
-1..env.example ファイルから.env を作成し、環境変数を変更
-1.php artisan key:generate  
-1.php artisan migrate  
-1.php artisan db:seed
+1. git clone https://github.com/wataru-xxxg/Rese.git
+1. docker-compose up -d --build
+
+Lavaral 環境構築
+
+1. docker-compose exec php bash
+1. composer install
+1. cp .env.example .env
+1. .env.example ファイルから.env を作成し、環境変数を変更
+1. php artisan key:generate
+1. php artisan migrate
+1. php artisan db:seed
 
 ## Stripe について
 
