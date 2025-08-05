@@ -149,7 +149,7 @@
 | shop_id        | bigint     |             |            | ○        | shops(id)        |
 | amount         | int        |             |            | ○        |                  |
 | currency       | varchar(3) |             |            | ○        |                  |
-| status         | enum )     |             |            | ○        |                  |
+| status         | enum       |             |            | ○        |                  |
 | created_at     | timestamp  |             |            |          |                  |
 | updated_at     | timestamp  |             |            |          |                  |
 
