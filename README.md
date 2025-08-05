@@ -139,6 +139,20 @@
 | created_at | timestamp |             |            |          |             |
 | updated_at | timestamp |             |            |          |             |
 
+### payyments
+
+| カラム名       | 型         | primary key | unique key | not null | foreign key      |
+| -------------- | ---------- | ----------- | ---------- | -------- | ---------------- |
+| id             | bigint     | ○           |            | ○        |                  |
+| reservation_id | bigint     |             |            | ○        | reservations(id) |
+| user_id        | bigint     |             |            | ○        | users(id)        |
+| shop_id        | bigint     |             |            | ○        | shops(id)        |
+| amount         | int        |             |            | ○        |                  |
+| currency       | varchar(3) |             |            | ○        |                  |
+| status         | enum )     |             |            | ○        |                  |
+| created_at     | timestamp  |             |            |          |                  |
+| updated_at     | timestamp  |             |            |          |                  |
+
 ## ER 図
 
 ![ER図](er.png "ER図")
