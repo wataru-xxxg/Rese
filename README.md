@@ -174,6 +174,14 @@ Lavaral 環境構築
 1. php artisan db:seed
 1. php artisan storage:link
 
+## 送信元メールアドレスについて
+
+送信元メールアドレスは以下のように設定をお願いいたします。
+
+```
+MAIL_FROM_ADDRESS="送信元メールアドレス"
+```
+
 ## Stripe について
 
 Stripe の API キーは以下のように設定をお願いいたします。

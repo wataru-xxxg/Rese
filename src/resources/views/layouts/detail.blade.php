@@ -36,7 +36,7 @@
                 </a>
 
                 <div class="image-container">
-                    <img src="@if(str_starts_with($shop->image_path, 'public/')){{ asset(Storage::url($shop->image_path)) }}@else{{ Storage::disk('s3')->url($shop->image_path) }}@endif" alt="イメージ画像" class="restaurant-image">
+                    <img src="@if(str_starts_with($shop->image_path, 'public/')){{ asset($shop->image_path) }}@else{{ Storage::disk('s3')->url($shop->image_path) }}@endif" alt="イメージ画像" class="restaurant-image">
                 </div>
 
                 <div class="tags">
