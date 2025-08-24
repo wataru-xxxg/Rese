@@ -168,7 +168,6 @@ Lavaral 環境構築
 
 1. docker-compose exec php bash
 1. composer install
-1. cp .env.example .env
 1. .env.example ファイルから.env を作成し、環境変数を変更
 1. php artisan key:generate
 1. php artisan migrate
