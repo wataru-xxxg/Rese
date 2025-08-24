@@ -1,6 +1,6 @@
 <div class="restaurant-card">
     <div class="restaurant-image-wrapper">
-        <img src="@if(str_starts_with($shop->image_path, 'public/')){{ asset(Storage::url($shop->image_path)) }}@else{{ Storage::disk('s3')->url($shop->image_path) }}@endif" alt="イメージ画像" class="restaurant-image">
+        <img src="@if(str_starts_with($shop->image_path, 'image/')){{ asset($shop->image_path) }}@else{{ Storage::disk('s3')->url($shop->image_path) }}@endif" alt="イメージ画像" class="restaurant-image">
     </div>
     <div class="restaurant-info">
         <h3 class="restaurant-name">{{ $shop->name }}</h3>
