@@ -24,7 +24,7 @@
     @if ($image)
     {{ $image->temporaryUrl() }}
     @elseif ($shop)
-    @if(str_starts_with($shop->image_path, 'image/')){{ asset($shop->image_path) }}@else{{ Storage::disk('s3')->url($shop->image_path) }}@endif
+    @if(str_starts_with($shop->image_path, 'image/')){{ Storage::url($shop->image_path) }}@else{{ Storage::disk('s3')->url($shop->image_path) }}@endif
     @endif
     " alt="イメージ画像" class="restaurant-image">
                 </div>

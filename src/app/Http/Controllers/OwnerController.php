@@ -43,7 +43,16 @@ class OwnerController extends Controller
         $name = $request->name;
         $description = $request->description;
         $image = $request->file('image');
-        $image_path = $image->store('shop', 's3');
+
+        // 環境に応じて画像の保存先を切り替え
+        if (app()->environment('local')) {
+            // ローカル環境: public/image/shopに保存
+            $image_path = $image->store('image/shop', 'public');
+        } else {
+            // 本番環境: S3に保存
+            $image_path = $image->store('shop', 's3');
+        }
+
         $area_id = $request->area_id;
         $genre_id = $request->genre_id;
         $user = Auth::user();
@@ -93,7 +102,16 @@ class OwnerController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $image_path = $image->store('shop', 's3');
+
+            // 環境に応じて画像の保存先を切り替え
+            if (app()->environment('local')) {
+                // ローカル環境: public/image/shopに保存
+                $image_path = $image->store('image/shop', 'public');
+            } else {
+                // 本番環境: S3に保存
+                $image_path = $image->store('shop', 's3');
+            }
+
             $shop->image_path = $image_path;
             $shop->save();
         }
